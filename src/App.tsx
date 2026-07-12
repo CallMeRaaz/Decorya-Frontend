@@ -51,18 +51,16 @@ const EditCustomer = lazy(() => import("./pages/admin/EditCustomerRole.tsx"));
 const Transaction = lazy(() => import("./pages/admin/transaction"));
 const AdminBanner = lazy(() => import("./pages/admin/AdminBanner"));
 const Coupon = lazy(() => import("./pages/admin/apps/coupon"));
-const Stopwatch = lazy(() => import("./pages/admin/apps/stopwatch"));
-const Toss = lazy(() => import("./pages/admin/apps/toss"));
 const NewProduct = lazy(() => import("./pages/admin/management/newproduct"));
 const ContactUsmanagement = lazy(
-  () => import("./pages/admin/management/contactUsmanagement")
+  () => import("./pages/admin/management/contactUsmanagement"),
 );
 
 const ProductManagement = lazy(
-  () => import("./pages/admin/management/productmanagement")
+  () => import("./pages/admin/management/productmanagement"),
 );
 const TransactionManagement = lazy(
-  () => import("./pages/admin/management/transactionmanagement")
+  () => import("./pages/admin/management/transactionmanagement"),
 );
 
 const App = () => {
@@ -71,15 +69,15 @@ const App = () => {
   return (
     <Router>
       <ToastProvider>
-       <link
-        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,600&display=swap"
-        rel="stylesheet"
-      />
-      <style
-        dangerouslySetInnerHTML={{
-          __html: "* { font-family: 'Source Sans Pro'; }",
-        }}
-      />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,300;0,400;1,600&display=swap"
+          rel="stylesheet"
+        />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: "* { font-family: 'Source Sans Pro'; }",
+          }}
+        />
 
         <Navbar user={user} />
         <Suspense fallback={<Loader />}>
@@ -339,22 +337,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="/admin/app/stopwatch"
-              element={
-                <ProtectedRoute isAdminRoute={true}>
-                  <Stopwatch />
-                </ProtectedRoute>
-              }
-            />
-            <Route
-              path="/admin/app/toss"
-              element={
-                <ProtectedRoute isAdminRoute={true}>
-                  <Toss />
-                </ProtectedRoute>
-              }
-            />
+
             {/* Management */}
             <Route
               path="/admin/product/new"
